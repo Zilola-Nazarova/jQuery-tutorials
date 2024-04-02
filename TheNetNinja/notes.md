@@ -18,6 +18,7 @@ Download and include file 'jquery-version':
   <script src="scripts/my_jquery_functions.js"></script>
 </head>
 ```
+
 ### NPM
 Installs jQuery in node_modules/jquery/dist/:
 > npm install jquery
@@ -56,13 +57,8 @@ $("p:not(.intro), ul li:first-child, a[target='_blank']").addClass("blue");
 
 **Document/Window Events:** load, resize, scroll, unload
 
-Example:
-```js
-$("p").click(function(){
-  // action goes here!!
-});
-```
-The on() method attaches one or more event handlers for the selected elements:
+### Binding
+The on() method attaches (binds) one or more event handlers for the selected elements:
 ```js
 $("p").on("click", function(){
   $(this).hide();
@@ -81,11 +77,26 @@ $("p").on({
   }
 });
 ```
+Event helpers (special methods to simplify event binding):
+```js
+$("p").click(function(){
+  // action goes here!!
+});
+```
+
+### Unbinding
+The off() method detaches(unbinds) an event for the selected elements:
+```js
+$("p").off("click");
+```
 
 ### The Document Ready Event
 Standard (readable):
 ```js
 $(document).ready(function(){
+  // jQuery methods go here...
+});
+$(document).on("ready", function(){
   // jQuery methods go here...
 });
 ```

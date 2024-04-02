@@ -221,3 +221,194 @@ $(document).ready(function(){
   });
 });
 ```
+
+
+## Traversing DOM
+```js
+$(selector).next().action()
+$(selector).prev().action()
+$(selector).parent().action()
+$(selector).parents().action()
+$(selector).children().action()
+$(selector).find().action()
+$(selector).closest().action()
+prev()
+```
+
+## Manipulating DOM
+### Creating Elements
+```js
+var txt1 = "<p>Text.</p>";               // Create element with HTML 
+var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+var txt3 = document.createElement("p");  // Create with DOM
+txt3.innerHTML = "Text.";
+```
+
+### Getting content/attr
+Content:
+```js
+$(selector).html()
+$(selector).text()
+$(selector).val()
+```
+Attribute value:
+```js
+$(selector).attr("attr_name")
+```
+
+### Setting content/attr
+Content:
+```js
+$(selector).html("node/html")
+$(selector).text("text")
+$(selector).val("text")
+```
+Attribute value:
+```js
+$(selector).attr("attr_name", "attr_value")
+```
+Multiple attributes:
+```js
+$(selector).attr({
+  "attr_name1" : "attr_value1",
+  "attr_name2" : "attr_value2"
+});
+```
+We can set html/text/val/attr with callback. The callback function should return the new value:
+```js
+$("#test2").html(function(i, origText){
+  return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")";
+});
+```
+```js
+$(selector).attr("href", function(i, origValue){
+  return origValue + "/jquery/";
+});
+```
+_i - the index of the current element in the list of elements selected_
+
+_origText - the original (old) attribute value_
+
+### Removing content/attr
+```js
+// selected element(s) and its child elements
+$(selector).remove();
+// child elements of the selected element(s)
+$(selector).empty();
+// An attribute:
+$(selector).removeAttr()
+```
+We can pass a filter to **remove()** method:
+```js
+$("p").remove(".test, .demo");
+```
+
+### Adding content
+```js
+$(selector).append("node/html")
+$(selector).prepend("node/html")
+$(selector).after("node/html")
+$(selector).before("node/html")
+// multiple elements
+$("img").after(elem1, elem2, elem3); 
+```
+Example:
+```js
+function afterText() {
+  var txt1 = "<b>I </b>";
+  var txt2 = $("<i></i>").text("love ");
+  var txt3 = document.createElement("b");
+  txt3.innerHTML = "jQuery!";
+  $("img").after(txt1, txt2, txt3);
+}
+```
+
+### Wrap/unwrap content (fullscreen, disable button)
+```js
+$(selector).wrap("node")
+$(selector).unwrap()
+$(selector).wrapAll("node")
+```
+
+### Changing classes
+```js
+// Adding one/multiple
+$(selector).addClass("class_name");
+$(selector).addClass("class_name1 class_name2 class_name3");
+// Removing one/multiple
+$(selector).removeClass("class_name");
+// Toggling one/multiple
+$(selector).toggleClass("class_name");
+```
+
+### Changing CSS
+Reads/returns css property value:
+```js
+$(selector).css("prop_name")
+```
+Sets css property:
+```js
+$(selector).css("prop_name", "value")
+```
+Sets multiple css properties:
+```js
+$(selector).css({
+  "prop1": "value1",
+  "prop2": "value2",
+  "prop3": "value3"
+})
+```
+
+## Manipulating DOM
+### Creating Elements
+```js
+var txt1 = "<p>Text.</p>";               // Create element with HTML 
+var txt2 = $("<p></p>").text("Text.");   // Create with jQuery
+var txt3 = document.createElement("p");  // Create with DOM
+txt3.innerHTML = "Text.";
+```
+
+### Getting content/attr
+Content:
+```js
+$(selector).html()
+$(selector).text()
+$(selector).val()
+```
+Attribute value:
+```js
+$(selector).attr("attr_name")
+```
+
+### Setting content/attr
+Content:
+```js
+$(selector).html("node/html")
+$(selector).text("text")
+$(selector).val("text")
+```
+Attribute value:
+```js
+$(selector).attr("attr_name", "attr_value")
+```
+Multiple attributes:
+```js
+$(selector).attr({
+  "attr_name1" : "attr_value1",
+  "attr_name2" : "attr_value2"
+});
+```
+We can set html/text/val/attr with callback. The callback function should return the new value:
+```js
+$("#test2").html(function(i, origText){
+  return "Old html: " + origText + " New html: Hello <b>world!</b> (index: " + i + ")";
+});
+```
+```js
+$(selector).attr("href", function(i, origValue){
+  return origValue + "/jquery/";
+});
+```
+_i - the index of the current element in the list of elements selected_
+
+_origText - the original (old) attribute value_

@@ -184,3 +184,40 @@ $("button").click(function(){
   div.animate({fontSize: '3em'}, "slow");
 });
 ```
+
+## Callbacks
+Will happen sequentially:
+```js
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide("slow", function(){
+      alert("The paragraph is now hidden");
+    });
+  });
+});
+```
+Will happen all at once (except animations queue functionality):
+```js
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide("slow")
+    alert("The paragraph is now hidden");
+  });
+});
+```
+
+## Chaining
+Single-line:
+```js
+$("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+```
+Multi-line:
+```js
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#p1").css("color", "red")
+      .slideUp(2000)
+      .slideDown(2000);
+  });
+});
+```

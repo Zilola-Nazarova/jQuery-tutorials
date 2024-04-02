@@ -412,3 +412,37 @@ $(selector).attr("href", function(i, origValue){
 _i - the index of the current element in the list of elements selected_
 
 _origText - the original (old) attribute value_
+
+### Removing content/attr
+```js
+// selected element(s) and its child elements
+$(selector).remove();
+// child elements of the selected element(s)
+$(selector).empty();
+// An attribute:
+$(selector).removeAttr()
+```
+We can pass a filter to **remove()** method:
+```js
+$("p").remove(".test, .demo");
+```
+
+### Adding content
+```js
+$(selector).append("node/html")
+$(selector).prepend("node/html")
+$(selector).after("node/html")
+$(selector).before("node/html")
+// multiple elements
+$("img").after(elem1, elem2, elem3); 
+```
+Example:
+```js
+function afterText() {
+  var txt1 = "<b>I </b>";
+  var txt2 = $("<i></i>").text("love ");
+  var txt3 = document.createElement("b");
+  txt3.innerHTML = "jQuery!";
+  $("img").after(txt1, txt2, txt3);
+}
+```

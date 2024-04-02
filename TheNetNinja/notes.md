@@ -37,6 +37,11 @@ Grab an element (returns a vanilla JavaScript object, we don't have access to jQ
 ## Selectors
 It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
 > $(selector)
+> $(selector1, selector2, selector 3)
+Example:
+```js
+$("p:not(.intro), ul li:first-child, a[target='_blank']").addClass("blue");
+```
 
 [List of selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
 
@@ -87,6 +92,17 @@ $(document).ready(function(){
 Shortcut (new, easier):
 ```js
 $(function(){
+  // jQuery methods go here...
+});
+```
+
+### The Window Load Event
+E.g. when we want to get image dimensions we'd need to wait all images (not only their tags) to be loaded in the first place.
+```js
+$(window).load(function(){
+  // jQuery methods go here...
+});
+$(window).on("load", function(){
   // jQuery methods go here...
 });
 ```

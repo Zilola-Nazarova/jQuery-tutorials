@@ -2,7 +2,7 @@
 ## Installation
 ### CDN
 Include the CDN in the head section of HTML file:  
-```js
+```html
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="scripts/my_jquery_functions.js"></script>
@@ -12,7 +12,7 @@ The main script can be included in the head section or before closing body tag.
 
 ### File
 Download and include file 'jquery-version':
-```js
+```html
 <head>
   <script src="scripts/jquery-version"></script>
   <script src="scripts/my_jquery_functions.js"></script>
@@ -93,11 +93,11 @@ $(function(){
 
 ## Effects
 Hide/show:
-> $(selector).hide(speed,callback);
+> $(selector).hide(speed,callback)
 > 
-> $(selector).show(speed,callback);
+> $(selector).show(speed,callback)
 > 
-> $(selector).toggle(speed,callback);
+> $(selector).toggle(speed,callback)
 
 Fade:
 > $(selector).fadeIn(speed,callback)
@@ -119,7 +119,7 @@ Animate:
 > $(selector).animate({params}<sup>required</sup>,speed,callback);
 
 Animate multiple props:
-```
+```js
 $(selector).animate({
   prop1: 'value1',
   prop2: 'value2',

@@ -119,14 +119,21 @@ $(window).on("load", function(){
 ```
 
 ## Effects
-Hide/show:
+The [difference](https://stackoverflow.com/questions/33982329/jquery-difference-between-hide-and-fadeout-show-and-fadein) between `hide()` and `fadeOut()`, `show()` and `fadeIn()`.
+
+Speed param: `slow`, `fast`, or `milliseconds`.
+
+### Hide/show
 > $(selector).hide(speed,callback)
 > 
 > $(selector).show(speed,callback)
 > 
 > $(selector).toggle(speed,callback)
 
-Fade:
+### Fade
+Animates the opacity.
+After fading out the element is removed from the DOM.
+FadeIn method fades in an element which was not displayed before (display: none).
 > $(selector).fadeIn(speed,callback)
 > 
 > $(selector).fadeOut(speed,callback)
@@ -135,15 +142,16 @@ Fade:
 > 
 > $(selector).fadeTo(speed<sup>required</sup>,opacity<sup>required</sup>,callback)
 
-Slide:
+### Slide
 > $(selector).slideDown(speed,callback)
 > 
 > $(selector).slideUp(speed,callback)
 > 
 > $(selector).slideToggle(speed,callback)
 
-Animate:
-> $(selector).animate({params}<sup>required</sup>,speed,callback);
+### Animate
+Looks like changing the CSS, but is gradient and accepts more params.
+> $(selector).animate({params}<sup>required</sup>,speed,linear/swing,callback);
 
 Animate multiple props:
 ```js
@@ -153,11 +161,8 @@ $(selector).animate({
   prop3: 'value3'
 });
 ```
-Speed param: `slow`, `fast`, or `milliseconds`.
 
 All property names must be camel-cased when used with the animate() method: `paddingLeft` instead of `padding-left`, `marginRight` instead of `margin-right`, and so on.
-
-The [difference](https://stackoverflow.com/questions/33982329/jquery-difference-between-hide-and-fadeout-show-and-fadein) between `hide()` and `fadeOut()`, `show()` and `fadeIn()`.
 
 Using relative values:
 ```js
@@ -202,6 +207,18 @@ $(document).ready(function(){
   $("button").click(function(){
     $("p").hide("slow")
     alert("The paragraph is now hidden");
+  });
+});
+```
+More structured way to write callbacks:
+```js
+// arrow function, function expression, function declaration
+function myCallback() {
+  alert("The paragraph is now hidden");
+};
+$(document).ready(function(){
+  $("button").click(function(){
+    $("p").hide("slow", myCallback);
   });
 });
 ```

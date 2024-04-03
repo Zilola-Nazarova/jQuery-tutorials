@@ -118,6 +118,17 @@ $(window).on("load", function(){
 });
 ```
 
+### The Event Object
+JQuery passes through an event object to event's callback function:
+```js
+$("p").on("click", function(e){
+  console.log(e.type); // returns event type
+  console.log(e.pageX, e.pageY); // returns event coordinates
+  console.log(e.target); // returns the element that fired an event
+  e.stopPropagation(); // stops bubbling
+});
+```
+
 ## Effects
 The [difference](https://stackoverflow.com/questions/33982329/jquery-difference-between-hide-and-fadeout-show-and-fadein) between `hide()` and `fadeOut()`, `show()` and `fadeIn()`.
 
@@ -189,6 +200,21 @@ $("button").click(function(){
   div.animate({fontSize: '3em'}, "slow");
 });
 ```
+Stop the animation:
+```js
+$(selector).stop(stopAll,goToEnd);
+```
+_stopAll - clears animation queue if true. Default is false - any queued animations perform afterwards._
+
+_goToEnd - completes the current animation immediately if true. Default is false._
+
+`stop(flase, false)` - stops current animation (where it was), all queued animations perform afterwards.
+
+`stop(true, false)` - stops current animation (where it was), all queued animations are cleared.
+
+`stop(true, true)` - immediatly finishes current animation (goes to the end), all queued animations are cleared.
+
+`stop(false, true)` - immediatly finishes current animation (goes to the end), all queued animations perform afterwards.
 
 ## Callbacks
 Will happen sequentially:

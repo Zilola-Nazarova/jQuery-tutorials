@@ -222,19 +222,6 @@ $(document).ready(function(){
 });
 ```
 
-
-## Traversing DOM
-```js
-$(selector).next().action()
-$(selector).prev().action()
-$(selector).parent().action()
-$(selector).parents().action()
-$(selector).children().action()
-$(selector).find().action()
-$(selector).closest().action()
-prev()
-```
-
 ## Manipulating DOM
 ### Creating Elements
 ```js
@@ -357,4 +344,28 @@ $(selector).css({
   "prop2": "value2",
   "prop3": "value3"
 })
+```
+
+### Dimensions
+![Element dimension methods](./images/img_jquerydim.gif).
+
+Getting element dimensions:
+```js
+$(selector).width()
+$(selector).height()
+$(selector).innerWidth()
+$(selector).innerHeight()
+$(selector).outerWidth()
+$(selector).outerHeight()
+```
+Getting document (the HTML document) and window (the browser viewport):
+```js
+$(document).width()
+$(document).height()
+$(window).width()
+$(window).height()
+```
+Setting dimensions:
+```js
+$(selector).width(pixels).height(pixels);
 ```

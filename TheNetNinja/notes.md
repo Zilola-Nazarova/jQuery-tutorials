@@ -1,11 +1,13 @@
 # TheNetNinja jQuery tutorial notes
+[Offical Documentation](https://api.jquery.com/)
+
 ## Installation
 ### CDN
 Include the CDN in the head section of HTML file:  
 ```html
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="scripts/my_jquery_functions.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/my_scripts.js"></script>
 </head>
 ```
 The main script can be included in the head section or before closing body tag.
@@ -14,8 +16,8 @@ The main script can be included in the head section or before closing body tag.
 Download and include file 'jquery-version':
 ```html
 <head>
-  <script src="scripts/jquery-version"></script>
-  <script src="scripts/my_jquery_functions.js"></script>
+  <script type="text/javascript" src="scripts/jquery-version"></script>
+  <script type="text/javascript" src="scripts/my_script.js"></script>
 </head>
 ```
 
@@ -43,12 +45,12 @@ It's based on the existing CSS Selectors, and in addition, it has some own custo
 
 Example:
 ```js
-$("p:not(.intro), ul li:first-child, a[target='_blank']").addClass("blue");
+$("p:not(.intro), ul li:first-child, a[target='_blank'], ul li:gt(3)").addClass("blue");
 ```
 
-[List of selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
+[List of Selectors](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
 
-[Selectors tester](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
+[Selectors Tester](https://www.w3schools.com/jquery/jquery_ref_selectors.asp)
 
 ## Events
 **Mouse Events:**	click, dblclick, mouseenter, mouseleave
@@ -130,6 +132,8 @@ $("p").on("click", function(e){
   e.stopPropagation(); // stops bubbling
 });
 ```
+
+[List of Events](https://www.w3schools.com/jquery/jquery_ref_events.asp)
 
 ## Effects
 The [difference](https://stackoverflow.com/questions/33982329/jquery-difference-between-hide-and-fadeout-show-and-fadein) between `hide()` and `fadeOut()`, `show()` and `fadeIn()`.
@@ -224,6 +228,8 @@ _goToEnd - completes the current animation immediately if true. Default is false
 `stop(true, true)` - immediatly finishes current animation (goes to the end), all queued animations are cleared.
 
 `stop(false, true)` - immediatly finishes current animation (goes to the end), all queued animations perform afterwards.
+
+[List of Effects](https://www.w3schools.com/jquery/jquery_ref_effects.asp)
 
 ## Callbacks
 Will happen sequentially:
@@ -399,7 +405,7 @@ $(selector).css({
 ```
 
 ### Dimensions
-![Element dimension methods](./images/img_jquerydim.gif).
+![Element dimensions schema](./images/img_jquerydim.gif).
 
 Getting element dimensions:
 ```js
@@ -421,3 +427,4 @@ Setting dimensions:
 ```js
 $(selector).width(pixels).height(pixels);
 ```
+[List of HTML/CSS methods](https://www.w3schools.com/jquery/jquery_ref_html.asp)

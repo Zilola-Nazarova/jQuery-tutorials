@@ -27,18 +27,20 @@ Installs jQuery in node_modules/jquery/dist/:
 Basic syntax looks like:
 > $(selector).action()
 
-### wrapped
+### Wrapped
 Grab an element (returns a jQuery object):
 > $(selector)
 
-### unwrapped
+### Unwrapped
 Grab an element (returns a vanilla JavaScript object, we don't have access to jQuery methods and effeccts):
 > $(selector)[0]
 
 ## Selectors
 It's based on the existing CSS Selectors, and in addition, it has some own custom selectors.
 > $(selector)
+>
 > $(selector1, selector2, selector 3)
+
 Example:
 ```js
 $("p:not(.intro), ul li:first-child, a[target='_blank']").addClass("blue");
@@ -135,6 +137,11 @@ The [difference](https://stackoverflow.com/questions/33982329/jquery-difference-
 Speed param: `slow`, `fast`, or `milliseconds`.
 
 ### Hide/show
+If speed is specified animates the opacity and width/height.
+
+Hide() sets the display property of the element to none.
+
+Show() method shows an element which was not displayed before (display: none).
 > $(selector).hide(speed,callback)
 > 
 > $(selector).show(speed,callback)
@@ -142,8 +149,10 @@ Speed param: `slow`, `fast`, or `milliseconds`.
 > $(selector).toggle(speed,callback)
 
 ### Fade
-Animates the opacity.
-After fading out the element is removed from the DOM.
+If speed is specified animates the opacity (and not width/height).
+
+FadeOut() sets the display property of the element to none.
+
 FadeIn method fades in an element which was not displayed before (display: none).
 > $(selector).fadeIn(speed,callback)
 > 

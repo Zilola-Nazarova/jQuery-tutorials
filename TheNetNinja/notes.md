@@ -428,3 +428,57 @@ Setting dimensions:
 $(selector).width(pixels).height(pixels);
 ```
 [List of HTML/CSS methods](https://www.w3schools.com/jquery/jquery_ref_html.asp)
+
+## Traversing DOM
+Traversing up:
+```js
+// works for ALL matched
+$(selector).parent() // direct parent
+$(selector).parents() // all ancestors up to <html>
+$(selector).parents(filter) // filtered ancestors
+$(selector1).parentsUntil(selector2) // between selector1 and selector2
+$(selector).closest(filter) // the first ancestor that match filter
+```
+Traversing down:
+```js
+// works for ALL matched
+$(selector).children() // all direct children
+$(selector).children(filter) // filtered direct children
+$(selector).find("*")// all descendants until the last
+$(selector).find(filter) // filtered descendants
+```
+Traversing sideways:
+```js
+// works for ALL matched
+$(selector).siblings() // all siblings
+$(selector).siblings(filter) // filtered siblings
+$(selector).next() // the next sibling
+$(selector).nextAll() // ALL the next siblings
+$(selector).nextAll(filter) // filtered next siblings
+$(selector1).nextUntil(selector2) // between selector1 and selector2
+$(selector).prev() // the previous sibling
+$(selector).prevAll() // ALL the previous siblings
+$(selector).nextAll(filter) // filtered previous siblings
+$(selector1).prevUntil(selector2) // between selector1 and selector2
+```
+Example:
+```js
+$("span").parents("ul").css({
+  "color": "red",
+  "border": "2px solid red"
+});
+```
+[List of Traversing Methods](https://www.w3schools.com/jquery/jquery_ref_traversing.asp)
+
+### Filtering
+Select a specific element based on its position in a group of elements:
+```js
+$(selector).first()
+$(selector).last()
+$(selector).eq(index) // starts from 0
+```
+Select elements that match, or do not match, a certain criteria:
+```js
+$(selector).filter(filter)
+$(selector).not(filter)
+```

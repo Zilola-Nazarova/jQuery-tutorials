@@ -14,4 +14,10 @@ $(document).ready(function() {
   }
 
   const quoteTimer = setInterval(changeQuote, 3000);
+
+  const items = $("#points-of-sale li");
+  
+  items.on("click", function() {
+    $(this).children("p").slideToggle(500);
+  });
 });
